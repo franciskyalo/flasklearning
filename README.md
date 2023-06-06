@@ -1,4 +1,4 @@
-# flasklearning
+# FLASK API ENDPOINT
 
 Using the Iris dataset, i build a decision tree model with a later deployed as a flask api integrated in html website to make predicctions in real life
 The following is the UI of the website 
