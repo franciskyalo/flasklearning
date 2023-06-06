@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import pickle
 from flask import Flask, request, jsonify, render_template
 
@@ -19,8 +20,7 @@ def predict():
     petal_width = float(request.form['petal_width'])
 
     # Create a DataFrame from the input values
-    query_df = pd.DataFrame([[sepal_length, sepal_width, petal_length, petal_width]],
-                            columns=['sepal_length', 'sepal_width', 'petal_length', 'petal_width'])
+    query_df = np.array([[sepal_length, sepal_width, petal_length, petal_width]])
 
     # Make the prediction using the loaded model
     prediction = irismodel.predict(query_df)

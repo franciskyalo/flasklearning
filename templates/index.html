@@ -1,28 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html >
 <head>
-    <title>Machine Learning Predictor</title>
+  <meta charset="UTF-8">
+  <!-- Make it compatible to mobile devices -->
+  
+  <title>Heart Disease Percent</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-    <h1>Machine Learning Predictor</h1>
-    <form method="POST" action="/predict">
-        <label for="sepal_length">Sepal Length:</label>
-        <input type="text" id="sepal_length" name="sepal_length"><br><br>
 
-        <label for="sepal_width">Sepal Width:</label>
-        <input type="text" id="sepal_width" name="sepal_width"><br><br>
+<body style="background: #fcf6f6;">
+ <div class="container">
+	<h1 style="color:rgb(21, 18, 21);">🔴🟡🟢Iris flower prediction🌼</h1>
 
-        <label for="petal_length">Petal Length:</label>
-        <input type="text" id="petal_length" name="petal_length"><br><br>
+     <!-- Action is where the data is sent. In our case, predict page.
+     If action is omitted, it assumed to be the current page -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="sepal_length" placeholder="enter sepallength" required="required" /><p>
+        <input type="text" name="sepal_width" placeholder="enter sepalwidth" required="required" /><p>
+        <input type="text" name="petal_length" placeholder="enter petallength" required="required" /><p>
+        <input type="text" name="petal_width" placeholder="enter petalwidth" required="required" /><p>
 
-        <label for="petal_width">Petal Width:</label>
-        <input type="text" id="petal_width" name="petal_width"><br><br>
-
-        <input type="submit" value="Predict">
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict the species🚀</button></p>
     </form>
 
-    {% if prediction_text %}
-        <h2>{{ prediction_text }}</h2>
-    {% endif %}
+   <br>
+   <br>
+   <h4 style="color:rgb(14, 13, 14);">
+   {{ prediction_text }} </h4>
+
+ </div>
 </body>
 </html>
